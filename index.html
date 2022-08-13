@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Ch.Finance$</title>
+</head>
+<body>
+  <main>
+    <section class="section-1">
+      <header>
+        <div class="container">
+          <div class="logo">
+            <h3>Ch.Finance$</h3>
+          </div>
+        </div>
+      </header>
+      <div class="panel">
+        <div class="container">
+          <div class="balance">
+            <p>Seu saldo é:</p>
+            <h1></h1>
+          </div>
+          <div class="cards">
+            <div class="card deposit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline>
+              </svg>
+              <p>Depositar</p>
+            </div>
+            <div class="card pay">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+              <p>Pagar</p>
+            </div>
+            <div class="card report">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              <p>Relatório</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-2"> 
+      <div>
+        <p class="transaction-history">Histórico de transações</p>
+      </div>
+      <div class="transactions">
+        <div class="container">
+            
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal">
+  
+    <button class="close-modal">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00ff7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <p class="transaction-type"></p>
+
+    <form>
+
+      <div class="transaction-infos">
+        <label for="transaction-value">Valor:</label>
+        <input type="number" id="transaction-value" name="transaction-value" required>
+      </div>
+      <p class="negative-values">Não é permitido valores negativos</p>
+
+      <div class="transaction-infos">
+        <label for="transaction-description">Descrição:</label>
+        <input type="text" id="transaction-description" name="transaction-description" required>
+      </div>
+
+      <button class="confirm-transaction">Confirmar</button>
+    </form>
+
+    <p class="empty-fields">Prencha todos os campos</p>
+
+  </div>
+
+
+  <div class="report-modal">
+    <button class="close-modal">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00ff7f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <p class="report-info">Aqui está seu relatório de entradas e saídas:</p>
+
+    <table>
+      <tr>
+        <td>Entradas:</td>
+        <td class="inbound"></td>
+      </tr>
+      <tr>
+        <td>Saidas:</td>
+        <td class="outbound"></td>
+      </tr>
+      <tr>
+        <td>Total:</td>
+        <td class="report-balance"></td>
+      </tr>
+    </table>
+
+    <p class="report-message"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  max-height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+  font-family: 'Noto Sans Mono', monospace;
+
+  transition: 0.6s;
+}
+
+main {
+  width: 100%;
+}
+
+.container {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.section-1 {
+  height: 300px;
+}
+
+.section-2 {
+  max-height: calc(100vh - 300px);
+}
+
+header {
+  height: 60px;
+
+  border-bottom: 1px solid #00ff7f;
+
+  display: flex;
+  align-items: center;
+}
+
+header .logo h3 {
+  font-size: 32px;
+  font-weight: bold;
+
+  font-family: 'Poppins', sans-serif;
+  color: #00ff7f;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: calc(100% - 70px);
+}
+
+.panel .container {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+}
+
+.balance {
+  flex: 1;
+  background-color: #222;
+  margin: 5px 0;
+  color: #FFF;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 24px;
+
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.balance p {
+  font-size: 16px;
+}
+
+.cards {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100%;
+  gap: 5px;
+}
+
+.card {
+  width: 33%;
+  height: 80%;
+
+  background-color: #222;
+  border-radius: 5px;
+  color: #FFF;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+
+  cursor: pointer;
+  transition: 0.5s;
+  border: 1px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border: 1px solid #00ff7f;  
+}
+
+.card:hover svg {
+  stroke: #00ff7f;
+}
+
+.card:hover p {
+  color: #00ff7f;
+}
+
+.transaction-history {
+  height: 20px;
+  color: #FFF;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.transactions {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-height: calc(100vh - 340px);
+}
+
+.transactions .container {
+  max-height: inherit;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.transaction {
+  min-height: 70px;
+  width: 90%;
+  padding: 0px 10px;
+  border-radius: 5px;
+  background-color: #222;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.transactions p {
+  color: #FFF;
+} 
+
+.transaction .description {
+  font-size: 14px;
+}
+
+.transaction .infos {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.transaction .infos {
+  font-size: 13px;
+}
+
+.transaction .infos p:first-child {
+  font-size: 18px;
+}
+
+.transaction p.green {
+  color: #00ff7f;
+}
+
+.transaction p.red {
+  color: #BB3333;
+}
+
+.transactions .container::-webkit-scrollbar {
+  scroll-behavior: smooth;
+  width: 10px;               /* width of the entire scrollbar */
+}
+  
+.transactions .container::-webkit-scrollbar-track {
+  background: #222;        /* color of the tracking area */
+}
+  
+.transactions .container::-webkit-scrollbar-thumb {
+  background-color: #00ff7f;    /* color of the scroll thumb */
+  border-radius: 5px;       /* roundness of the scroll thumb */
+  border: 3px solid #222;  /* creates padding around scroll thumb */
+}
+
+.modal {
+  display: none;
+
+  position: fixed;
+  z-index: 2;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: rgba(0, 0, 0, 0.9);
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.transaction-type {
+  color: #FFF;
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+form {
+  background-color: #222;
+  color: #FFF;
+  width: 30%;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+  border-radius: 5px;
+}
+
+form input {
+  border: none;
+  outline: none;
+}
+
+form input:focus {
+  border: 2px solid #00ff7f;
+}
+
+.transaction-infos {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-infos input {
+  height: 40px;
+}
+
+.confirm-transaction {
+  width: 50%;
+  height: 40px;
+  margin: 0 auto;
+
+  border-radius: 5px;
+  border: none;
+  outline: none;
+
+
+  cursor: pointer;
+  font-size: 18px;
+  background-color: #FFF;
+}
+
+.confirm-transaction:hover {
+  background-color: #00ff7f;
+}
+
+.close-modal,
+.close-report-modal {
+  position: absolute;
+  
+  background: none;
+  outline: none;
+  border: none;
+
+  top: 10px;
+  right: 10px;
+
+  cursor: pointer;
+}
+
+.negative-values {
+  font-size: 12px;
+  background-color: red;
+  padding: 0;
+  margin-top: -20px;
+  margin-bottom: -17px;
+  text-align: center;
+
+  display: none;
+}
+
+.empty-fields {
+  display: none;
+
+  color: #F00;
+  font-size: 20px;
+
+  animation: wanrningMessage 0.7s infinite;
+}
+
+.report-modal {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  background-color: #000;
+
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.report-modal table {
+  width: 70%;
+  margin: 0 auto;
+
+  color: #FFF;
+  border-collapse: collapse; 
+}
+
+.report-modal table td {
+  padding: 5px;
+}
+
+.report-modal table tr:nth-child(1) {
+  background-color: #003303;
+}
+
+.report-modal table tr:nth-child(2) {
+  background-color: #330000;
+
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+}
+
+.report-modal table tr:nth-child(3) {
+  background-color: #222;
+  border-bottom: 1px solid #555;
+}
+
+.report-modal table tr:first-child {
+  color: #00ff7f;
+}
+
+.report-modal table tr:nth-child(2) {
+  color: #BB3333;
+}
+
+.report-modal table td:first-child {
+  text-align: left;
+}
+
+.report-modal table td:nth-child(2) {
+  text-align: right;
+}
+
+.report-info,
+.report-message {
+  color: #FFF;
+
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 40px;
+  padding: 10px 0;
+}
+
+.report-info {
+  margin-top: 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #FFF;
+}
+
+.report-message {
+  border-top: 1px solid #FFF ;
+}
+
+@keyframes wanrningMessage {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@media (max-width: 1160px) {
+  .container {
+    width: 90%;
+  }
+
+  form {
+    width: 350px;
+  }
+}
+
+@media(max-width: 415px) {
+  .transaction .description {
+    font-size: 12px;
+  }
+
+  .transaction .infos p:first-child {
+    font-size: 16px;
+  }
+
+  .transaction .infos p:last-child {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: 90%;
+  }
+
+  .card {
+    font-size: 12px;
+  }
+
+  form {
+    width: 90%;
+  }
+}
